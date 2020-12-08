@@ -1,21 +1,11 @@
-import os, time
-import playsound as ps
-import speech_recognition as sr
-from gtts import gTTS
+import pyttsx3
+engine = pyttsx3.init()
 
-class audio:
-    filename = 'No'
-    message = 'text'
-
-    def __init__ (self,filename):
-        self.filename = filename
-    
-    def play(self,message):
-        self.message = message
-        tts = gTTS(text=message, lang='en')
-        filename = self.filename
-        tts.save(filename)
-        ps.playsound(filename)
-
-test = audio('hello.mp3')
-test.play('testtttttttttttttttttttttttttttttttttttttttttttttttttttttt')
+voices = engine.getProperty('voices')
+for voice in voices:
+    print("Voice:" + str(voice))
+    print(" - ID: %s" % voice.id)
+    print(" - Name: %s" % voice.name)
+    print(" - Languages: %s" % voice.languages)
+    print(" - Gender: %s" % voice.gender)
+    print(" - Age: %s" % voice.age)

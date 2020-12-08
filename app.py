@@ -4,6 +4,9 @@ import speech_recognition as sr
 from gtts import gTTS
 from googletrans import Translator
 from datetime import datetime
+from subprocess import Popen,call
+import webbrowser
+import pyttsx3
 
 class audio:
     filename = 'No'
@@ -36,6 +39,19 @@ def get_order():
 
     return said
 
+access = pyttsx3.init('sapi5')
+voices = access.getProperty('voices')
+access.setProperty('voice', voices[len(voices)-1].id)
+
+def speak(sound):
+    print('Computer: ' + sound)
+    access.say(sound)
+    access.runAndWait()
+  
+    
+# speak('Hello Boss, I am ACCESS. ACCESS stand for Aid Computing Can Easy Secure System')   
+        
+        
 
 order = get_order()
 

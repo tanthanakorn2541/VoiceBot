@@ -39,45 +39,38 @@ def get_order():
 
     return said
 
-access = pyttsx3.init('sapi5')
+access = pyttsx3.init()
 voices = access.getProperty('voices')
-access.setProperty('voice', voices[len(voices)-1].id)
+access.setProperty('voice', voices[0].id)
 
 def speak(sound):
-    print('Computer: ' + sound)
+    print('ACCESS: ' + sound)
     access.say(sound)
     access.runAndWait()
-  
-    
-# speak('Hello Boss, I am ACCESS. ACCESS stand for Aid Computing Can Easy Secure System')   
-        
-        
 
-order = get_order()
+speak(' At your service, sir.')
 
-if "เปิด Visual Studio Code" in order or "Open Visual Studio Code" in order:
-    oksir = audio('./voice_file/acceptTH.mp3')
-    oksir.play_sound()
-    openup = os.startfile('C:/Users/Tan Thanakorn/AppData/Local/Programs/Microsoft VS Code/code.exe')
-    openup
+if __name__ == '__main__':
 
-elif "เปิด Google Chrome" in order or "เปิด Chrome" in order:
-    oksir = audio('./voice_file/acceptTH.mp3')
-    oksir.play_sound()
-    openup = os.startfile('C:/Program Files (x86)/Google/Chrome/Application/chrome.exe')
-    openup
+    while True:
 
+        order = get_order()
 
-# elif "เปิด Visual Studio Code" in order or "Open Visual Studio Code" in order:
-#     oksir = audio('./voice_file/acceptTH.mp3')
-#     oksir.play_sound()
-#     os.close('C:/Users/Tan Thanakorn/AppData/Local/Programs/Microsoft VS Code/code.exe')
+        if "เปิด Visual Studio Code" in order or "Open Visual Studio Code" in order:
+            speak('Got it sir, In progress to open Visual Studio Code')
+            os.startfile('C:/Users/Tan Thanakorn/AppData/Local/Programs/Microsoft VS Code/code.exe')
 
-# elif "เปิด Google Chorme" in order:
-#     oksir = audio('./voice_file/acceptTH.mp3')
-#     oksir.play_sound()
-#     os.startfile('C:/Users/Tan Thanakorn/AppData/Local/Programs/Microsoft VS Code/code.exe')
+        elif "เปิด Google Chrome" in order or "เปิด Chrome" in order:
+            speak('Got it sir, In progress to open Google Chrome')
+            os.startfile('C:/Program Files (x86)/Google/Chrome/Application/chrome.exe')
 
+        elif 'เปิดอีเมล' in order:
+            speak('Will do, sir')
+            webbrowser.open('https://outlook.live.com')
+
+        elif "ปิดระบบ" in order:
+            speak('Got it sir')
+            break
 
 
 # เตรียมตัวแปรไว้แปลภาษา ด้วย google translate
@@ -93,15 +86,6 @@ elif "เปิด Google Chrome" in order or "เปิด Chrome" in order:
 #         print(str(datetime.now()) + ' 2.แปลงเสียงเป็นข้อความภาษาไทย')
 #         said = r.recognize_google(audio, None,'th')
 #         print(str(datetime.now()) + '    ข้อความที่ได้ : ' + said)
-
-
-
-
-
-
-
-
-
 
 
 

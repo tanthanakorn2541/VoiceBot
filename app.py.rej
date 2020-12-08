@@ -1,0 +1,9 @@
+diff a/app.py b/app.py	(rejected hunks)
+@@ -4,7 +4,6 @@
+ from gtts import gTTS
+ from googletrans import Translator
+ from datetime import datetime
+-from subprocess import Popen,call
+ 
+ class audio:
+     filename = 'No'

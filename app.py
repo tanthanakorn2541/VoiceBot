@@ -52,14 +52,31 @@ def speak(sound):
 # speak('Hello Boss, I am ACCESS. ACCESS stand for Aid Computing Can Easy Secure System')   
         
         
+
 order = get_order()
 
 if "เปิด Visual Studio Code" in order or "Open Visual Studio Code" in order:
     oksir = audio('./voice_file/acceptTH.mp3')
     oksir.play_sound()
-    os.startfile('C:/Users/Tan Thanakorn/AppData/Local/Programs/Microsoft VS Code/code.exe')
+    openup = os.startfile('C:/Users/Tan Thanakorn/AppData/Local/Programs/Microsoft VS Code/code.exe')
+    openup
+
+elif "เปิด Google Chrome" in order or "เปิด Chrome" in order:
+    oksir = audio('./voice_file/acceptTH.mp3')
+    oksir.play_sound()
+    openup = os.startfile('C:/Program Files (x86)/Google/Chrome/Application/chrome.exe')
+    openup
 
 
+# elif "เปิด Visual Studio Code" in order or "Open Visual Studio Code" in order:
+#     oksir = audio('./voice_file/acceptTH.mp3')
+#     oksir.play_sound()
+#     os.close('C:/Users/Tan Thanakorn/AppData/Local/Programs/Microsoft VS Code/code.exe')
+
+# elif "เปิด Google Chorme" in order:
+#     oksir = audio('./voice_file/acceptTH.mp3')
+#     oksir.play_sound()
+#     os.startfile('C:/Users/Tan Thanakorn/AppData/Local/Programs/Microsoft VS Code/code.exe')
 
 
 

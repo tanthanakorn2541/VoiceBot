@@ -1,4 +1,2 @@
-D:
-cd D:\Tan Thanakorn\Documents\Freelance\voice
-conda activate base
-python app.py
+"C:\Program Files\Anaconda3\python.exe" "D:\Tan Thanakorn\Documents\Freelance\voice\app.py"
+pause

@@ -68,8 +68,8 @@ if __name__ == '__main__':
             speak('Will do, sir')
             webbrowser.open('https://outlook.live.com')
 
-        elif "ปิดระบบ" in order:
-            speak('Got it sir')
+        elif "ปิดระบบ" in order or "ขอบใจ" in order:
+            speak('Enjoy yourself, sir.')
             break
 
 

@@ -2,9 +2,8 @@ import os, time
 import playsound as ps
 import speech_recognition as sr
 from gtts import gTTS
-from googletrans import Translator
+# from googletrans import Translator
 from datetime import datetime
-from subprocess import Popen,call
 import webbrowser
 import pyttsx3
 
@@ -48,7 +47,7 @@ def speak(sound):
     access.say(sound)
     access.runAndWait()
 
-speak(' At your service, sir.')
+speak(' At your service,sir.')
 
 if __name__ == '__main__':
 
@@ -65,27 +64,14 @@ if __name__ == '__main__':
             os.startfile('C:/Program Files (x86)/Google/Chrome/Application/chrome.exe')
 
         elif 'เปิดอีเมล' in order:
-            speak('Will do, sir')
+            speak('Will do,sir')
             webbrowser.open('https://outlook.live.com')
 
         elif "ปิดระบบ" in order or "ขอบใจ" in order:
-            speak('Enjoy yourself, sir.')
+            speak('Enjoy yourself,sir.')
             break
 
 
-# เตรียมตัวแปรไว้แปลภาษา ด้วย google translate
-# translator = Translator()
-# # เตรียมตัวแปรไว้คอยรับเสียงจากไมค์
-# r = sr.Recognizer()
-# with sr.Microphone() as source:
-#     while True:
-#         # 1. รอรับเสียงพูดจากไมค์
-#         print(str(datetime.now()) + ' 1.รอรับเสียงพูดจากไมค์')
-#         audio = r.listen(source)           
-#         # 2. แปลงเสียงเป็นข้อความภาษาไทย
-#         print(str(datetime.now()) + ' 2.แปลงเสียงเป็นข้อความภาษาไทย')
-#         said = r.recognize_google(audio, None,'th')
-#         print(str(datetime.now()) + '    ข้อความที่ได้ : ' + said)
 
 
 

@@ -66,6 +66,10 @@ if __name__ == '__main__':
         elif 'เปิดอีเมล' in order:
             speak('Will do,sir')
             webbrowser.open('https://outlook.live.com')
+        
+        elif 'เปิด discord' in order:
+            speak('Will do,sir')
+            os.startfile('C:/Users/Tan Thanakorn/AppData/Local/Discord/app-0.0.309/Discord.exe')
 
         elif "ปิดระบบ" in order or "ขอบใจ" in order:
             speak('Enjoy yourself,sir.')

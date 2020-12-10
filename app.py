@@ -2,9 +2,8 @@ import os, time
 import playsound as ps
 import speech_recognition as sr
 from gtts import gTTS
-from googletrans import Translator
+# from googletrans import Translator
 from datetime import datetime
-from subprocess import Popen,call
 import webbrowser
 import pyttsx3
 
@@ -26,12 +25,15 @@ class audio:
     
 
 def get_order():
-    r = sr.Recognizer()
-    with sr.Microphone() as Source:
-        sound = r.listen(Source)
+    recognizer = sr.Recognizer()
+    with sr.Microphone() as source:
+        print("Listening...")
+        recognizer.adjust_for_ambient_noise(source)
+        audio = recognizer.listen(source)
         said = ''
+
         try:
-            said = r.recognize_google(sound, None,'th')
+            said = recognizer.recognize_google(audio, None,'th')
             print(said)
 
         except Exception as e:
@@ -48,7 +50,7 @@ def speak(sound):
     access.say(sound)
     access.runAndWait()
 
-speak(' At your service, sir.')
+speak(' At your service,sir.')
 
 if __name__ == '__main__':
 
@@ -65,27 +67,18 @@ if __name__ == '__main__':
             os.startfile('C:/Program Files (x86)/Google/Chrome/Application/chrome.exe')
 
         elif 'เปิดอีเมล' in order:
-            speak('Will do, sir')
+            speak('Will do,sir')
             webbrowser.open('https://outlook.live.com')
+        
+        elif 'เปิด discord' in order or 'เปิดดิสคอร์ด' in order:
+            speak('Will do,sir')
+            os.startfile('C:/Users/Tan Thanakorn/AppData/Local/Discord/app-0.0.309/Discord.exe')
 
         elif "ปิดระบบ" in order or "ขอบใจ" in order:
-            speak('Enjoy yourself, sir.')
+            speak('Enjoy yourself,sir.')
             break
 
 
-# เตรียมตัวแปรไว้แปลภาษา ด้วย google translate
-# translator = Translator()
-# # เตรียมตัวแปรไว้คอยรับเสียงจากไมค์
-# r = sr.Recognizer()
-# with sr.Microphone() as source:
-#     while True:
-#         # 1. รอรับเสียงพูดจากไมค์
-#         print(str(datetime.now()) + ' 1.รอรับเสียงพูดจากไมค์')
-#         audio = r.listen(source)           
-#         # 2. แปลงเสียงเป็นข้อความภาษาไทย
-#         print(str(datetime.now()) + ' 2.แปลงเสียงเป็นข้อความภาษาไทย')
-#         said = r.recognize_google(audio, None,'th')
-#         print(str(datetime.now()) + '    ข้อความที่ได้ : ' + said)
 
 
 

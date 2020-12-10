@@ -25,12 +25,15 @@ class audio:
     
 
 def get_order():
-    r = sr.Recognizer()
-    with sr.Microphone() as Source:
-        sound = r.listen(Source)
+    recognizer = sr.Recognizer()
+    with sr.Microphone() as source:
+        print("Listening...")
+        recognizer.adjust_for_ambient_noise(source)
+        audio = recognizer.listen(source)
         said = ''
+
         try:
-            said = r.recognize_google(sound, None,'th')
+            said = recognizer.recognize_google(audio, None,'th')
             print(said)
 
         except Exception as e:
@@ -67,7 +70,7 @@ if __name__ == '__main__':
             speak('Will do,sir')
             webbrowser.open('https://outlook.live.com')
         
-        elif 'เปิด discord' in order:
+        elif 'เปิด discord' in order or 'เปิดดิสคอร์ด' in order:
             speak('Will do,sir')
             os.startfile('C:/Users/Tan Thanakorn/AppData/Local/Discord/app-0.0.309/Discord.exe')
 
